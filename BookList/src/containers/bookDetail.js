@@ -1,16 +1,18 @@
-import React from 'react';
+import React       from 'react';
 import { connect } from 'react-redux';
 
 class BookDetail extends React.Component {
 	render() {
-		if(!this.props.book){
+		const { book } = this.props;
+		
+		if(!book){
 			return <div>Select a book to get started.</div>
 		}
 		return (
 			<div>
 				<h4>Details for:</h4>
-				<div>Title: {this.props.book.title}</div>
-				<div>Pages: {this.props.book.pages}</div>
+				<div>Title: {book.title}</div>
+				<div>Pages: {book.pages}</div>
 			</div>
 		);
 	}
