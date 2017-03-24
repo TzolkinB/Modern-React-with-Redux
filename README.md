@@ -8,3 +8,10 @@
     - uses Youtube API
 
 ### Book List App
+
+
+- if you accidentally push node_modules to a repo by not putting them in the .gitignore
+    file and need to remove them, run:
+    - `git rm -r --cached node_modules`
+    - `git commit -m "remove the ignored node_modules directory"`
+    - `git push origin master`
