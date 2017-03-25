@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from '../containers/searchBar';
+import WeatherList from '../containers/weatherList';
 import '../../public/style.css';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
       			<div className="col-sm-3"></div>
       			<div className="col-sm-6">
         			<SearchBar />
+              <WeatherList />
       			</div>
       			<div className="col-sm-3"></div>
     			</div>
