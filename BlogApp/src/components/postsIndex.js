@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/index';
+import React  							from 'react';
+import {connect} 						from 'react-redux';
+import {fetchPosts} 				from '../actions/index';
 import {bindActionCreators} from 'redux';
-//import { Link } from 'react-router';
+import {Link} 							from 'react-router';
 
 class PostsIndex extends React.Component {
 
@@ -15,7 +15,11 @@ class PostsIndex extends React.Component {
 	render() {
 		return(
 			<div>
-				Posts Index here!
+				<div className="text-right">
+         	<Link to="/posts/new" className="btn btn-success">
+            New Post
+          </Link>
+        </div>
 			</div>
 		);
 	}
