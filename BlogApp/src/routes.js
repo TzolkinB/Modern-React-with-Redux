@@ -7,7 +7,7 @@ import PostsShow from './components/postsShow';
 
 export default (
   <Route path="/" component={App}>
-    {/* If route only matches the parent, aka "/", show IndexRoute */}
+    {/* If the route only matches the parent, aka "/", show IndexRoute */}
     <IndexRoute component={PostsIndex} />
   	<Route path="posts" component={PostsShow} />
     {/* <Route path="posts/new" component={PostsNew} />
