@@ -9,7 +9,15 @@
 
 ### Book List App
 
+### Weather App
+  - uses openweathermap.org's free API to get weather data
+  - also uses google maps
+  
+### Blog App
+  - uses API Stephen Grider wrote for this tutorial: http://reduxblog.herokuapp.com/
+  - uses Postman, a free application for API Development: https://www.getpostman.com/
 
+---------------------------------------------------------------------------------------------------
 - if you accidentally push node_modules to a repo by not putting them in the .gitignore
     file and need to remove them, run:
     - `git rm -r --cached node_modules`
