@@ -15,7 +15,8 @@
   
 ### Blog App
   - uses API Stephen Grider wrote for this tutorial: http://reduxblog.herokuapp.com/
-  - uses Postman, a free application for API Development: https://www.getpostman.com/
+  - video section "Exploring the Posts API"
+    - uses Postman, a free application for API Development: https://www.getpostman.com/
 
 ---------------------------------------------------------------------------------------------------
 - if you accidentally push node_modules to a repo by not putting them in the .gitignore
