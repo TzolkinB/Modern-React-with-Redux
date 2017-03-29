@@ -2,7 +2,7 @@ import FETCH_POSTS from '../actions/index';
 
 const defaultState = {
 	all: [],
-	post:null
+	post: ''
 };
 
 export default function(state = defaultState, action) {
