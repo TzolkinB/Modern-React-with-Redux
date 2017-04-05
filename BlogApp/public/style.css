@@ -6,3 +6,7 @@ body {
 .text-right {
 	float: right;
 }
+
+.button-margin {
+	margin-left: 5px !important;
+}
