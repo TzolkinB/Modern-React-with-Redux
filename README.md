@@ -5,7 +5,7 @@
 
 ### Video Browser App:
 - video sections "An Intro to React" and "AJAX Requests with React"
-    - uses Youtube API
+    - uses [Youtube API](https://developers.google.com/youtube/v3/)
 
 ### Book List App
 
@@ -15,6 +15,7 @@
   
 ### Blog App
   - uses API Stephen Grider wrote for this tutorial: http://reduxblog.herokuapp.com/
+  - uses [axios](https://www.npmjs.com/package/axios), which is a "Promise based HTTP client for the browser and node.js"
   - video section "Exploring the Posts API"
     - uses Postman, a free application for API Development: https://www.getpostman.com/
 
