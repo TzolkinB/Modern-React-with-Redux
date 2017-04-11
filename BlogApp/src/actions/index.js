@@ -10,15 +10,13 @@ const API_KEY = '?key=everythingisshinycaptain';
 
 export function fetchPosts() {
   const request = axios.get(`${ROOT_URL}/posts${API_KEY}`)
-    .then(response => {
-      console.log('response', response);
-      this.setState({
-        posts:response.data
-      })
-    })
-    .catch( error => {
-      console.log("error", error)
-    })
+   .then(response => {
+    console.log('response:', response);
+  })
+  .catch(error => {
+    console.log('error:', error);
+  });
+    console.log('request:', request)
 
   return {
     type: FETCH_POSTS,

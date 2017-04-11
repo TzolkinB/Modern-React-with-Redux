@@ -8,12 +8,13 @@ class PostsIndex extends React.Component {
 	componentWillMount () {
 		// call the action creator, made accessible by mapDispatchToProps, to fetch posts
 		// to test at this point, look in "Network" tab of dev tools to see a post request
-		this.props.fetchPosts();
-		console.log(this.props)
+		this.props.fetchPosts()
+			.then(response => {
+    	console.log('response:', response);
+  		})
 	}
 
 	renderPosts() {
-		console.log('posts', this.props.posts);
 		return this.props.posts.map((post) => {
 			return (
 				<li className="list-group-item" key={post.id}>
@@ -25,7 +26,6 @@ class PostsIndex extends React.Component {
 	}
 
 	render() {
-		console.log('initial', this.state)
 		//if(){
 		//	return <div> No response yet </div>
 		//}
@@ -46,7 +46,6 @@ class PostsIndex extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log('state', state);
 	return { posts: state.posts.all }; 
 }
 
