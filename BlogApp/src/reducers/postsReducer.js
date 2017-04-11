@@ -1,4 +1,4 @@
-import FETCH_POSTS from '../actions/index';
+import {FETCH_POSTS} from '../actions/index';
 
 const defaultState = {
 	all: [],

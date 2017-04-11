@@ -9,9 +9,7 @@ class PostsIndex extends React.Component {
 		// call the action creator, made accessible by mapDispatchToProps, to fetch posts
 		// to test at this point, look in "Network" tab of dev tools to see a post request
 		this.props.fetchPosts()
-			.then(response => {
-    	console.log('response:', response);
-  		})
+			
 	}
 
 	renderPosts() {
