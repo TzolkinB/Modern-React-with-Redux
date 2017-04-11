@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {reduxForm} from 'redux-form';
 import {Link} from 'react-router';
 import {createPost} from '../actions/index';
@@ -18,6 +18,17 @@ function validate(values) {
 }
 
 class PostsNew extends React.Component {
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
+  onSubmit(props) {
+    this.props.createPost(props)
+      .then(() => {
+        // blog post has been created, navigate user to index
+        this.context.router.push('/')
+       });
+  }
 
 	render() {
 		//handleSubmit is a function given to us by redux-form
@@ -30,7 +41,7 @@ class PostsNew extends React.Component {
 
 		return(
 			<div>
-        <form onSubmit={handleSubmit(this.props.createPost)}>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <h3>Create A New Post</h3>
           <div className={`form-group ${titleValid}`}>
             <label>Title</label>
