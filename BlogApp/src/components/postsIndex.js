@@ -9,15 +9,16 @@ class PostsIndex extends React.Component {
 		// call the action creator, made accessible by mapDispatchToProps, to fetch posts
 		// to test at this point, look in "Network" tab of dev tools to see a post request
 		this.props.fetchPosts()
-			
 	}
 
 	renderPosts() {
 		return this.props.posts.map((post) => {
 			return (
 				<li className="list-group-item" key={post.id}>
-					<span className="text-right">{post.categories}</span>
-					<strong>{post.title}</strong>
+					<Link to={"posts/" + post.id}>
+						<span className="text-right">{post.categories}</span>
+						<strong>{post.title}</strong>
+					</Link>
 				</li>
 			);
 		});
