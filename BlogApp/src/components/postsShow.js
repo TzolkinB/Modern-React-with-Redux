@@ -1,4 +1,4 @@
-import React                   from 'react';
+import React, {PropTypes}      from 'react';
 import {connect} 						   from 'react-redux';
 import {fetchPost, deletePost} from '../actions/index';
 import {bindActionCreators}    from 'redux';
@@ -6,6 +6,10 @@ import {Link} 							   from 'react-router';
 
 
 class PostsShow extends React.Component {
+	 static contextTypes = {
+    router: PropTypes.object
+  };
+
 	componentWillMount () {
 		// call the action creator, made accessible by mapDispatchToProps, to fetch post
 		// to test at this point, look in "Network" tab of dev tools to see a post request
@@ -13,7 +17,11 @@ class PostsShow extends React.Component {
 	}
 
 	onDelete(){
-		this.props.deletePost(this.props.params.id);
+		this.props.deletePost(this.props.params.id)
+			.then(() => {
+				//blog post has been deleted, navigate back to index
+				this.context.router.push('/')
+			});
 	}
 
 	render() {
