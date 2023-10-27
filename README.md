@@ -6,11 +6,11 @@
 - his initial repo for the course: https://github.com/StephenGrider/ReduxCasts
 - no repo for new 2023 course
 
-### Animals App:
+### Animals App
 
 - simple example of useState (comes from react library)
 
-### Image Browser App:
+### Image Browser App
 
 - Uses Unsplash public API to search for term and display results
   - uses [Unsplash API](https://unsplash.com/documentation)
