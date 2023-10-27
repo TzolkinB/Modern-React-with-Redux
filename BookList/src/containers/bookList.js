@@ -3,11 +3,9 @@ import { connect } 					from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {selectBook} 				from '../actions/index';
 
-class BookList extends React.Component {
-	renderList = () => {
+function BookList({books}) {
+	const renderList = (books) => {
 		// props of books comes from mapStateToProps
-		const { books } = this.props;
-
 		return books.map( book  => {
 			return (
 				<li 
@@ -20,13 +18,11 @@ class BookList extends React.Component {
 		})
 	}
 
-	render() {
-		return (
-			<ul className="list-group col-sm-4">
-				{this.renderList()}
-			</ul>
-		)
-	}
+	return (
+		<ul className="list-group col-sm-4">
+			{renderList(books)}
+		</ul>
+	)
 }
 
 const mapStateToProps = (state) => {

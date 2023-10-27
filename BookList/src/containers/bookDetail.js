@@ -1,21 +1,20 @@
 import React       from 'react';
 import { connect } from 'react-redux';
 
-class BookDetail extends React.Component {
-	render() {
-		const { book } = this.props;
+function BookDetail({ book }) {
+	// move destructure up instead of using props
+	// const { book } = props;
 		
-		if(!book){
-			return <div>Select a book to get started.</div>
-		}
-		return (
-			<div>
-				<h4>Details for:</h4>
-				<div>Title: {book.title}</div>
-				<div>Pages: {book.pages}</div>
-			</div>
-		);
+	if(!book){
+		return <div>Select a book to get started.</div>
 	}
+	return (
+		<div>
+			<h4>Details for:</h4>
+			<div>Title: {book.title}</div>
+			<div>Pages: {book.pages}</div>
+		</div>
+	);
 }
 
 const mapStateToProps = (state) => {
