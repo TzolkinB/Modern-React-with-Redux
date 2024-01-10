@@ -10,10 +10,10 @@
 
 - simple example of useState (comes from react library)
 
-### Video Browser App:
+### Image Browser App:
 
-- video sections "An Intro to React" and "AJAX Requests with React"
-  - uses [Youtube API](https://developers.google.com/youtube/v3/)
+- Uses Unsplash public API to search for term and display results
+  - uses [Unsplash API](https://unsplash.com/documentation)
 
 ### Book List App
 
