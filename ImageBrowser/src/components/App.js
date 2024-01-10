@@ -1,10 +1,19 @@
-import unsplash from "../api/unsplash";
+// import unsplash from "../api/unsplash";
 import React from 'react';
 import _ from 'lodash';
-import SearchBar from './SearchBar';
-import VideoList from './ImageList';
-import VideoDetail from './ImageShow';
+// import SearchBar from './SearchBar';
+// import VideoList from './ImageList';
+// import VideoDetail from './ImageShow';
 
+function App() {
+	// render() {
+		return 'Hello World'
+	// };
+}
+
+export default App
+
+/*
 function App() {
 	constructor(props) {
 		super(props);
@@ -51,3 +60,4 @@ function App() {
 }
 
 export default App
+*/
