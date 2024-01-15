@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import searchImages from '../api';
-import SearchBar from './SearchBar';
-import ImageList from './ImageList';
+import searchImages from './src/api';
+import SearchBar from './src/components/SearchBar';
+import ImageList from './src/components/ImageList';
 
 function App() {
 	// set images to an empty array as default since unsplash data is array
