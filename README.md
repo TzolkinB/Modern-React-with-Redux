@@ -4,11 +4,12 @@
 
 - https://www.udemy.com/react-redux
 - his initial repo for the course: https://github.com/StephenGrider/ReduxCasts
-- no repo for new 2023 course
+- No repo for updated course. Instead, resource files can be downloaded from Udemy course content.
 
 ### Animals App
 
 - simple example of useState (comes from react library)
+- Click button to add random animal image. Click on animal image to make heart icon increase size.
 
 ### Image Browser App
 
