@@ -1,22 +1,22 @@
 import React from 'react';
-import VideoListItem from './ImageShow';
+import ImageShow from './ImageShow';
 
-const VideoList = (props) => {
-	const { videos } = props;
+const ImageList = (props) => {
+	const { images } = props;
 
-	const videoItems = videos.map( video => 
-		<VideoListItem 
-			onVideoSelect={props.handleSelect}
-			video={video} 
-			key={video.etag} 
+	const imageItems = images?.map( image => 
+		<ImageShow 
+			// onImageSelect={props.handleSelect}
+			image={image} 
+			key={image.id} 
 		/> 
 	)
 
 	return (
 		<ul className="col-md-4 list-group">
-			{videoItems}
+			{imageItems}
 		</ul>
 	)
 }
 
-export default VideoList;
+export default ImageList;
