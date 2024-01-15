@@ -3,9 +3,15 @@
 ## Udemy Tutorial: Modern React with Redux by Stephen Grider
 
 - https://www.udemy.com/react-redux
-- his repo for the course: https://github.com/StephenGrider/ReduxCasts
+- his initial repo for the course: https://github.com/StephenGrider/ReduxCasts
+- No repo for updated course. Instead, resource files can be downloaded from Udemy course content.
 
-### Image Browser App:
+### Animals App
+
+- simple example of useState (comes from react library)
+- Click button to add random animal image. Click on animal image to make heart icon increase size.
+
+### Image Browser App
 
 - Uses Unsplash public API to search for term and display results
   - uses [Unsplash API](https://unsplash.com/documentation)
