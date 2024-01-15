@@ -1,3 +1,32 @@
+# Animals App and Image Browser App
+
+Uses react-reouter-dom v6
+
+Instead of multiple small apps with their own package.json and dependency management, the apps built in the tutorial are moved into their own folders after src
+```js
+-src/
+ | animals/
+ | ImageBrowser/
+ | App.js // where react router is used
+ | index.js
+```
+
+## Image Browser
+
+Enter search term to search Unsplash images api and shows ten results on page.
+
+```js
+Uses: [Axios](https://axios-http.com/) and React useState hook.
+```
+
+## Usage
+
+```js
+// to start app
+npm start
+```
+
+----
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
