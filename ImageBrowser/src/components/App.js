@@ -1,11 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import searchImages from '../api';
-import _ from 'lodash';
 import SearchBar from './SearchBar';
-// import VideoList from './ImageList';
-// import VideoDetail from './ImageShow';
+import ImageList from './ImageList';
 
 function App() {
+	// set images to an empty array as default since unsplash data is array
+	const [images, setImages] = useState([])
+
+	/* ----- The below was before useState hook existed ----- */
 	// constructor(props) {
 	// 	super(props);
 	// 	this.state = {
@@ -18,33 +21,27 @@ function App() {
 	// 	searchImages()
 	// }
 
-	
-
 	// callback function to pass selectedVideo from App to VideoList then to VideoListItem
 	// selectVideo = (selectedVideo) => {
 	// 	this.setState({ selectedVideo })
 	// } 
+	/* ---------------------------- */
 
 
-  // render() {
-  	// debounce 300 means search only calls every 300 milliseconds
-  	// const videoSearch = _.debounce(term => {this.videoSearch(term)}, 300)
-		const handleSubmit = term => {
+		const handleSubmit = async term => {
 			console.log('search term:', term)
-			searchImages(term)
+			const result = await searchImages(term)
+
+			setImages(result)
 		}
 
     return (
     	<div className="container-fluid">
 				<h1>Unplash Image Search</h1>
       	<SearchBar handleSearch={handleSubmit} />
-      	{/* <VideoDetail video={this.state.selectedVideo} />
-      	<VideoList 
-      		videos={this.state.videos}
-      		handleSelect={this.selectVideo} /> */}
+				<ImageList images={images} />
       </div>
     );
   };
-// }
 
 export default App
