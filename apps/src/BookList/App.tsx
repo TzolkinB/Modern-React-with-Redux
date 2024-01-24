@@ -1,11 +1,12 @@
 import { useState} from 'react'
 import BookCreate from './src/components/BookCreate'
 import BookList from './src/components/BookList'
+import { BookType } from './src/types'
 
 function App() {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState<BookType[]>([])
 
-  const createBook = title => {
+  const createBook = (title: string) => {
     console.log('Need to add book with', title)
     const updatedBooks = [
       ...books,

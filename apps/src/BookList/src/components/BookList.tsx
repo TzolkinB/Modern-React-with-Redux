@@ -1,6 +1,9 @@
 import BookShow from './BookShow'
+import { BookType } from '../types'
 
-function BookList({ books }) {
+
+function BookList(props: { books: BookType[] }) {
+  const { books } = props
   const renderedBooks = books?.map(book => {
     // return <BookShow key={book.id} book={book} />
     return <div>Book:{book.title}</div>

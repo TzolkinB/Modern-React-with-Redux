@@ -1,15 +1,16 @@
-import React from 'react';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
+import { DataObj } from '../types';
 
-function SearchBar({ handleSearch }) {
+function SearchBar(props: { handleSearch: (term: string) => DataObj[] }) {
+	const { handleSearch } = props
 	const [term, setTerm] = useState('')
 
-	const handleFormSubmit = (event) => {
+	const handleFormSubmit = (event: { preventDefault: () => void; }) => {
 		event.preventDefault();
 		handleSearch(term)
 	}
 
-	const handleChange = (event) => {
+	const handleChange = (event: { target: { value: SetStateAction<string>; }; }) => {
 		setTerm(event.target.value)
 	}
 

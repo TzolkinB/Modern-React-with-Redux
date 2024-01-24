@@ -1,15 +1,17 @@
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
+import { BookType } from '../types';
 
-function BookCreate({ onCreate }) {
+function BookCreate(props: { onCreate: (title: string) => BookType[] }) {
+  const { onCreate } = props
   const [title, setTitle] = useState('')
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: { preventDefault: () => void; }) => {
 		event.preventDefault();
 		onCreate(title)
     setTitle('')
 	}
 
-  const handleChange = (event) => {
+  const handleChange = (event: { target: { value: SetStateAction<string>; }; }) => {
 		setTitle(event.target.value)
 	}
 
