@@ -1,12 +1,12 @@
-import React from 'react';
 import { useState } from 'react';
 import searchImages from './src/api';
 import SearchBar from './src/components/SearchBar';
 import ImageList from './src/components/ImageList';
+import { DataObj } from './src/types';
 
 function App() {
 	// set images to an empty array as default since unsplash data is array
-	const [images, setImages] = useState([])
+	const [images, setImages] = useState<DataObj[]>([])
 
 	/* ----- The below was before useState hook existed ----- */
 	// constructor(props) {
@@ -27,10 +27,9 @@ function App() {
 	// } 
 	/* ---------------------------- */
 
-
-		const handleSubmit = async term => {
+		const handleSubmit = async (term: string) => {
 			console.log('search term:', term)
-			const result = await searchImages(term)
+			const result: DataObj[] = await searchImages(term)
 
 			setImages(result)
 		}

@@ -1,12 +1,13 @@
 # Animals App and Image Browser App
 
-Uses react-reouter-dom v6
+Uses react-router-dom v6, typescript 5
 
 Instead of multiple small apps with their own package.json and dependency management, the apps built in the tutorial are moved into their own folders after src
 ```js
 -src/
  | animals/
  | ImageBrowser/
+ | BookList/
  | App.js // where react router is used
  | index.js
 ```
@@ -21,7 +22,7 @@ Uses: [Axios](https://axios-http.com/) and React useState hook.
 
 # Getting Started
 
-App was created originally with create-react-app then migrated to Vite
+App was created originally with create-react-app then migrated to Vite.
 
 ## Available Scripts
 

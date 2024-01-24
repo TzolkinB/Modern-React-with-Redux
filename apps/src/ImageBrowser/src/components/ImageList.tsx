@@ -1,8 +1,9 @@
-import React from 'react';
+import { DataObj } from '../types';
 import ImageShow from './ImageShow';
 
-const ImageList = (props) => {
+const ImageList = (props: DataObj[]) => {
 	const { images } = props;
+	console.log('images', images)
 
 	const imageItems = images?.map( image => 
 		<ImageShow 
