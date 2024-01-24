@@ -2,6 +2,7 @@
 // react router v6
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import AnimalsApp from './animals/App'
+import BookListApp from './BookList/App'
 import ImageBrowserApp from './ImageBrowser/App'
 
 function Home() {
@@ -32,6 +33,9 @@ function App() {
         <Link to="/animals" style={{ padding: 5 }}>
           Animals
         </Link>
+        <Link to="/booklist" style={{ padding: 5 }}>
+          Booklist
+        </Link>
         <Link to="/image-browser" style={{ padding: 5 }}>
           Image Browser
         </Link>
@@ -39,6 +43,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/animals" element={<AnimalsApp />} />
+        <Route path="/booklist" element={<BookListApp />} />
         <Route path="/image-browser" element={<ImageBrowserApp />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>

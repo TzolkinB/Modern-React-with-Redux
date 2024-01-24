@@ -1,6 +1,6 @@
-import React from 'react';
+import { DataObj } from "../types";
 
-const ImageShow = (props) => {
+const ImageShow = (props: {image: DataObj, key: string}) => {
 	const { image, onImageSelect } = props;
 
 	const imageUrl = image.urls.thumb;

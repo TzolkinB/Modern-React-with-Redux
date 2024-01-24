@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const searchImages = async (term) => {
+const searchImages = async (term: string) => {
   const response = await axios.get('https://api.unsplash.com/search/photos', {
     headers: {
       "Accept-Version": "v1",

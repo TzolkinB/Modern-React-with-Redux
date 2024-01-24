@@ -6,7 +6,7 @@ import gator from './img/gator.jpg'
 import horse from './img/horse.jpg'
 import owl from './img/owl.jpg'
 
-function AnimalShow(props) {
+function AnimalShow(props: { type: string, key: number }) {
   const { type } = props
   const [clicks, setClicks] = useState(0)
 
@@ -19,7 +19,7 @@ function AnimalShow(props) {
   }
 
   return <div onClick={handleClick}>
-    <img alt="animal" src={imgMap[type]} height={100} />
+    <img alt="animal" src={imgMap[type as keyof typeof imgMap]} height={100} />
     <p style={{color:"red", fontSize: 10 + 10 * clicks + 'px'}}>&#x2665;</p>
   </div>
 }
