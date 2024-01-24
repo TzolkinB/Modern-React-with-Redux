@@ -1,7 +1,6 @@
 import { SetStateAction, useState } from 'react';
-import { DataObj } from '../types';
 
-function SearchBar(props: { handleSearch: (term: string) => DataObj[] }) {
+function SearchBar(props: { handleSearch: (term: string) => Promise<void> }) {
 	const { handleSearch } = props
 	const [term, setTerm] = useState('')
 

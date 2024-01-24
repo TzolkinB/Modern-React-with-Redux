@@ -1,7 +1,6 @@
 import { SetStateAction, useState } from 'react'
-import { BookType } from '../types';
 
-function BookCreate(props: { onCreate: (title: string) => BookType[] }) {
+function BookCreate(props: { onCreate: (title: string) => void }) {
   const { onCreate } = props
   const [title, setTitle] = useState('')
 
