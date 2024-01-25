@@ -1,4 +1,3 @@
-import React from "react"
 import { DataObj } from "../types.tsx"
 import ImageShow from "./ImageShow.tsx"
 

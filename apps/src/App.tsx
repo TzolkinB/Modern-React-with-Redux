@@ -1,6 +1,5 @@
 // Routes is used instead of the previous Switch component
 // react router v6
-import React from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 import AnimalsApp from "./animals/App.tsx"
 import BookListApp from "./BookList/App.tsx"

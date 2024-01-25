@@ -1,4 +1,4 @@
-import React, { SetStateAction, useState } from "react"
+import { SetStateAction, useState } from "react"
 
 function BookCreate(props: { onCreate: (title: string) => void }) {
   const { onCreate } = props

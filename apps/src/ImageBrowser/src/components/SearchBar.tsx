@@ -1,4 +1,4 @@
-import React, { SetStateAction, useState } from "react"
+import { SetStateAction, useState } from "react"
 
 function SearchBar(props: { handleSearch: (term: string) => Promise<void> }) {
   const { handleSearch } = props

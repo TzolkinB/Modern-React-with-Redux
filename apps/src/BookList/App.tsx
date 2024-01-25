@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import BookCreate from "./src/components/BookCreate.tsx"
 import BookList from "./src/components/BookList.tsx"
 import { BookType } from "./src/types.tsx"

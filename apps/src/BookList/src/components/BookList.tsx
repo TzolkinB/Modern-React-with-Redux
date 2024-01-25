@@ -1,4 +1,3 @@
-import React from "react"
 // import BookShow from "./BookShow.tsx"
 import { BookType } from "../types.tsx"
 

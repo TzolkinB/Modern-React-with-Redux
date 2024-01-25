@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import cat from "./img/cat.jpg"
 import cow from "./img/cow.jpg"
 import dog from "./img/dog.jpg"

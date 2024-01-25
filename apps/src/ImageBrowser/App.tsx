@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import searchImages from "./src/api.tsx"
 import SearchBar from "./src/components/SearchBar.tsx"
 import ImageList from "./src/components/ImageList.tsx"
