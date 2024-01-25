@@ -1,4 +1,20 @@
-export interface DataObj {
+type LinkObj = {
+  download: string
+  download_location: string
+  html: string
+  self: string
+}
+
+type UrlsObj = {
+  full: string
+  raw: string
+  regular: string
+  small: string
+  small_s3: string
+  thumb: string
+}
+
+export type DataObj = {
   alt_description: string
   blur_hash: string
   breadcrumbs: []
@@ -13,20 +29,4 @@ export interface DataObj {
   updated_at: string
   promoted_at: string
   urls: UrlsObj
-}
-
-interface LinkObj {
-  download: string
-  download_location: string
-  html: string
-  self: string
-}
-
-interface UrlsObj {
-  full: string
-  raw: string
-  regular: string
-  small: string
-  small_s3: string
-  thumb: string
 }
