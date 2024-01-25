@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import AnimalShow from './AnimalShow'
+import { useState } from "react"
+import AnimalShow from "./AnimalShow.tsx"
 
 type animal = string
 
 const getRandomAnimal = () => {
-  const animals = ['owl', 'cat', 'cow', 'dog', 'gator', 'horse']
+  const animals = ["owl", "cat", "cow", "dog", "gator", "horse"]
   return animals[Math.floor(Math.random() * animals.length)]
 }
 
@@ -17,12 +17,17 @@ function App() {
     setAnimals([...animals, getRandomAnimal()])
   }
 
+  // eslint-disable-next-line no-shadow
   const renderedAnimals = animals.map((animal, i) => {
-    return <AnimalShow type={animal} key={i} />;
-  });
+    // eslint-disable-next-line react/no-array-index-key
+    return <AnimalShow type={animal} key={i} />
+  })
+
   return (
-    <div> 
-      <button onClick={handleClick}>Add Animal</button>
+    <div>
+      <button type="button" onClick={handleClick}>
+        Add Animal
+      </button>
       <div>{renderedAnimals}</div>
     </div>
   )

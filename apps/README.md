@@ -8,8 +8,8 @@ Instead of multiple small apps with their own package.json and dependency manage
  | animals/
  | ImageBrowser/
  | BookList/
- | App.js // where react router is used
- | index.js
+ | App.tsx // where react router is used
+ | index.tsx
 ```
 
 ## Image Browser
@@ -22,7 +22,7 @@ Uses: [Axios](https://axios-http.com/) and React useState hook.
 
 # Getting Started
 
-App was created originally with create-react-app then migrated to Vite.
+App was created originally with create-react-app then migrated to [Vite](https://vitejs.dev/guide/).
 
 ## Available Scripts
 
@@ -30,13 +30,14 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in development mode.\
+Opens browser automatically to [http://localhost:3030](http://localhost:3030), where the port is set in **vite.config.js**.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+### `npm run lint`
+
+Runs eslint against all .tsx files, directories listed in the **.eslintignore** file are ignored automatically
+
 ### `npm test`
-
-
-### `npm run build`
