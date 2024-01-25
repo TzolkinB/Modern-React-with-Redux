@@ -1,9 +1,10 @@
 // Routes is used instead of the previous Switch component
 // react router v6
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import AnimalsApp from './animals/App'
-import BookListApp from './BookList/App'
-import ImageBrowserApp from './ImageBrowser/App'
+import React from "react"
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import AnimalsApp from "./animals/App.tsx"
+import BookListApp from "./BookList/App.tsx"
+import ImageBrowserApp from "./ImageBrowser/App.tsx"
 
 function Home() {
   return (
@@ -20,7 +21,7 @@ function NoMatch() {
       <h2>404: Page Not Found</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
     </div>
-  );
+  )
 }
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
         </Link>
       </nav>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/animals" element={<AnimalsApp />} />
         <Route path="/booklist" element={<BookListApp />} />
         <Route path="/image-browser" element={<ImageBrowserApp />} />
