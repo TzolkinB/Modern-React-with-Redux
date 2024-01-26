@@ -1,6 +1,6 @@
 ![CI/CD workflow](https://github.com/TzolkinB/Modern-React-with-Redux/actions/workflows/cicd.js.yml/badge.svg)
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TzolkinB/Modern-React-with-Redux/cicd.js.yml?logo=github&label=CI%2FCD)
+<!-- ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TzolkinB/Modern-React-with-Redux/cicd.js.yml?logo=github&label=CI%2FCD) -->
 
 # Animals App and Image Browser App
 
