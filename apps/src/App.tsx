@@ -1,9 +1,38 @@
 // Routes is used instead of the previous Switch component
 // react router v6
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  matchPath,
+  useLocation,
+} from "react-router-dom"
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
+import Tabs from "@mui/material/Tabs"
+import MuiTab from "@mui/material/Tab"
+import Toolbar from "@mui/material/Toolbar"
+import { useTheme, styled } from "@mui/material/styles"
 import AnimalsApp from "./animals/App.tsx"
 import BookListApp from "./BookList/App.tsx"
 import ImageBrowserApp from "./ImageBrowser/App.tsx"
+
+// From Material UI Routing docs
+// https://mui.com/material-ui/guides/routing/#tabs
+function useRouteMatch(patterns: readonly string[]) {
+  const { pathname } = useLocation()
+
+  for (let i = 0; i < patterns.length; i += 1) {
+    const pattern = patterns[i]
+    const possibleMatch = matchPath(pattern, pathname)
+    if (possibleMatch !== null) {
+      return possibleMatch
+    }
+  }
+
+  return null
+}
 
 function Home() {
   return (
@@ -23,30 +52,75 @@ function NoMatch() {
   )
 }
 
+function MyTabs() {
+  const theme = useTheme()
+
+  const CustomTab = styled(MuiTab)(
+    () => `
+      color: #e3f2fd;
+      
+      &[aria-selected="true"] {
+        color: ${theme.palette.error.light};
+      }
+    `,
+  )
+
+  // You need to provide the routes in descendant order.
+  // This means that if you have nested routes like:
+  // users, users/new, users/edit.
+  // Then the order should be ['users/add', 'users/edit', 'users'].
+  const routeMatch = useRouteMatch([
+    "/animals",
+    "/booklist",
+    "/image-browser",
+    "/",
+  ])
+  const currentTab = routeMatch?.pattern?.path
+
+  return (
+    <Tabs value={currentTab}>
+      <CustomTab label="Home" value="/" to="/" component={Link} />
+      <CustomTab
+        label="Animals"
+        value="/animals"
+        to="/animals"
+        component={Link}
+      />
+      <CustomTab
+        label="Booklist"
+        value="/booklist"
+        to="/booklist"
+        component={Link}
+      />
+      <CustomTab
+        label="Image Browser"
+        value="/image-browser"
+        to="/image-browser"
+        component={Link}
+      />
+    </Tabs>
+  )
+}
+
 function App() {
   return (
     <Router>
-      <nav style={{ margin: 10 }}>
-        <Link to="/" style={{ padding: 5 }}>
-          Home
-        </Link>
-        <Link to="/animals" style={{ padding: 5 }}>
-          Animals
-        </Link>
-        <Link to="/booklist" style={{ padding: 5 }}>
-          Booklist
-        </Link>
-        <Link to="/image-browser" style={{ padding: 5 }}>
-          Image Browser
-        </Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/animals" element={<AnimalsApp />} />
-        <Route path="/booklist" element={<BookListApp />} />
-        <Route path="/image-browser" element={<ImageBrowserApp />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
+      <Box sx={{ width: "100%" }}>
+        <AppBar position="fixed">
+          <Toolbar>
+            <MyTabs />
+          </Toolbar>
+        </AppBar>
+        <Box sx={{ mt: 10, mx: 5 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/animals" element={<AnimalsApp />} />
+            <Route path="/booklist" element={<BookListApp />} />
+            <Route path="/image-browser" element={<ImageBrowserApp />} />
+            <Route path="*" element={<NoMatch />} />
+          </Routes>
+        </Box>
+      </Box>
     </Router>
   )
 }
