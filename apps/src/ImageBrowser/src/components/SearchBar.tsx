@@ -16,7 +16,7 @@ function SearchBar(props: { handleSearch: (term: string) => Promise<void> }) {
   }
 
   return (
-    <div className="search-bar">
+    <div>
       <form onSubmit={handleFormSubmit}>
         <input value={term} onChange={handleChange} />
       </form>

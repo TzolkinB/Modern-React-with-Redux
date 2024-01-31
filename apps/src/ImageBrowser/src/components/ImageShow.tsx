@@ -1,35 +1,33 @@
+import ImageList from "@mui/material/ImageList"
+import ImageListItem from "@mui/material/ImageListItem"
+import ImageListItemBar from "@mui/material/ImageListItemBar"
 import { DataObj } from "../types.tsx"
 
-function ImageShow(props: { image: DataObj }) {
-  const { image } = props
+function ImageShow(props: { image: DataObj; key: string }) {
+  const { image, key } = props
 
   const imageUrl = image.urls.thumb
 
-  function onImageSelect(): void {
-    throw new Error(`Function not implemented, ${image}`)
-  }
+  // function onImageSelect(): void {
+  //   throw new Error(`Function not implemented, ${image}`)
+  // }
 
   return (
-    <li className="list-group-item">
-      <div
-        className="image-list media"
-        role="button"
-        tabIndex={0}
-        onClick={() => onImageSelect(image)}
-        onKeyUp={() => onImageSelect(image)}
-      >
-        <div className="media-left">
-          <img
-            className="media-object"
-            src={imageUrl}
-            alt={image.alt_description}
-          />
-        </div>
-        <div className="media-body">
-          <div className="media-heading">{image.alt_description}</div>
-        </div>
-      </div>
-    </li>
+    <ImageList sx={{ width: 500, height: 450, columns: 4 }}>
+      <ImageListItem key={key}>
+        <img
+          srcSet={`${imageUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
+          src={`${imageUrl}?w=248&fit=crop&auto=format`}
+          alt={image.alt_description}
+          loading="lazy"
+        />
+        <ImageListItemBar
+          title={image.alt_description}
+          subtitle={<span>by: {image.username}</span>}
+          position="below"
+        />
+      </ImageListItem>
+    </ImageList>
   )
 }
 

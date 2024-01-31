@@ -13,7 +13,7 @@ import Box from "@mui/material/Box"
 import Tabs from "@mui/material/Tabs"
 import MuiTab from "@mui/material/Tab"
 import Toolbar from "@mui/material/Toolbar"
-import { useTheme, styled } from "@mui/material/styles"
+import { styled } from "@mui/material/styles"
 import AnimalsApp from "./animals/App.tsx"
 import BookListApp from "./BookList/App.tsx"
 import ImageBrowserApp from "./ImageBrowser/App.tsx"
@@ -53,14 +53,16 @@ function NoMatch() {
 }
 
 function MyTabs() {
-  const theme = useTheme()
+  // const theme = useTheme()
 
   const CustomTab = styled(MuiTab)(
     () => `
-      color: #e3f2fd;
+      color: #fff;
+      opacity: 0.6;
       
       &[aria-selected="true"] {
-        color: ${theme.palette.error.light};
+        color: #fff;
+        opacity: 1;
       }
     `,
   )
