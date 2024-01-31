@@ -1,4 +1,7 @@
 import { SetStateAction, useState } from "react"
+import Box from "@mui/material/Box"
+import TextField from "@mui/material/TextField"
+// import { useFormControl } from '@mui/material/FormControl';
 
 function SearchBar(props: { handleSearch: (term: string) => Promise<void> }) {
   const { handleSearch } = props
@@ -16,11 +19,29 @@ function SearchBar(props: { handleSearch: (term: string) => Promise<void> }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
-        <input value={term} onChange={handleChange} />
-      </form>
-    </div>
+    <Box
+      component="form"
+      sx={{
+        "& .MuiTextField-root": { m: 1 },
+      }}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleFormSubmit}
+    >
+      <div>
+        <TextField
+          id="outlined-search"
+          label="Search Field"
+          type="search"
+          value={term}
+          onChange={handleChange}
+          sx={{ backgroundColor: "#fff" }}
+        />
+        {/* <form onSubmit={handleFormSubmit}>
+          <input value={term} onChange={handleChange} />
+        </form> */}
+      </div>
+    </Box>
   )
 }
 

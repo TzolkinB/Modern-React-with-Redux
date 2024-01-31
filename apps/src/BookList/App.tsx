@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Typography from "@mui/material/Typography"
 import BookCreate from "./src/components/BookCreate.tsx"
 import BookList from "./src/components/BookList.tsx"
 import { BookType } from "./src/types.tsx"
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <h1>BookList App</h1>
+      <Typography variant="h2">BookList App</Typography>
       <BookCreate onCreate={createBook} />
       <BookList books={books} />
     </div>

@@ -23,8 +23,6 @@ function ImageResults(props: { images: DataObj[] }) {
         return (
           <StyledImageListItem key={image.id}>
             <img
-              // srcSet={`${imageUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              // src={`${imageUrl}?w=248&fit=crop&auto=format`}
               srcSet={imageUrl}
               src={imageUrl}
               alt={image.alt_description}
@@ -34,6 +32,7 @@ function ImageResults(props: { images: DataObj[] }) {
               title={image.alt_description}
               subtitle={<span>by: {image.user?.username}</span>}
               position="below"
+              sx={{ alignSelf: "center" }}
             />
           </StyledImageListItem>
         )

@@ -1,11 +1,17 @@
 import { useState } from "react"
+import Alert from "@mui/material/Alert"
+import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
+import Grid from "@mui/material/Grid"
+import AddIcon from "@mui/icons-material/Add"
+import Typography from "@mui/material/Typography"
 import AnimalShow from "./AnimalShow.tsx"
 
 type animal = string
+const animalList = ["owl", "cat", "cow", "dog", "gator", "horse"]
 
 const getRandomAnimal = () => {
-  const animals = ["owl", "cat", "cow", "dog", "gator", "horse"]
-  return animals[Math.floor(Math.random() * animals.length)]
+  return animalList[Math.floor(Math.random() * animalList.length)]
 }
 
 function App() {
@@ -14,21 +20,44 @@ function App() {
   // [piece of status, setter function] = useState(initial default value)
   const [animals, setAnimals] = useState<animal[]>([])
   const handleClick = () => {
-    setAnimals([...animals, getRandomAnimal()])
+    const randomAnimal = getRandomAnimal()
+    if (animals.includes(randomAnimal)) {
+      return (
+        <Alert severity="warning">Animal already added. Try again.</Alert>
+        // getRandomAnimal()
+      )
+    }
+    return setAnimals([...animals, randomAnimal])
   }
 
   // eslint-disable-next-line no-shadow
   const renderedAnimals = animals.map((animal, i) => {
+    // console.log(animal)
+    // if (!animal) {
+    //   return <Alert severity="warning">Animal already added. Try again.</Alert>
+    // }
     // eslint-disable-next-line react/no-array-index-key
     return <AnimalShow type={animal} key={i} />
   })
 
   return (
     <div>
-      <button type="button" onClick={handleClick}>
+      <Typography variant="h2" gutterBottom>
+        Favorite Animals App
+      </Typography>
+      <Button
+        variant="contained"
+        color="secondary"
+        startIcon={<AddIcon />}
+        onClick={handleClick}
+      >
         Add Animal
-      </button>
-      <div>{renderedAnimals}</div>
+      </Button>
+      <Box mt={10} mx={10}>
+        <Grid container spacing={0}>
+          {renderedAnimals}
+        </Grid>
+      </Box>
     </div>
   )
 }

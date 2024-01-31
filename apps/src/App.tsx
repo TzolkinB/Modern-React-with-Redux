@@ -13,6 +13,7 @@ import Box from "@mui/material/Box"
 import Tabs from "@mui/material/Tabs"
 import MuiTab from "@mui/material/Tab"
 import Toolbar from "@mui/material/Toolbar"
+import Typography from "@mui/material/Typography"
 import { styled } from "@mui/material/styles"
 import AnimalsApp from "./animals/App.tsx"
 import BookListApp from "./BookList/App.tsx"
@@ -37,8 +38,8 @@ function useRouteMatch(patterns: readonly string[]) {
 function Home() {
   return (
     <div>
-      <h1>App Homepage</h1>
-      <p>Apps to choose from are: animals and image browser</p>
+      <Typography variant="h1" gutterBottom>Multi-App Homepage</Typography>
+      <Typography variant="body1">Apps to choose from are: animals and image browser</Typography>
     </div>
   )
 }
