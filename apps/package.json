@@ -6,7 +6,10 @@
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "eslint --ext .tsx src/"
+    "lint": "eslint --ext .tsx src/",
+    "test-server": "vite dev --mode test",
+    "test:e2e": "cypress open --e2e",
+    "server-and-test": "start-server-and-test 'npm run test-server' http://localhost:3030 'npm run test:e2e'"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
