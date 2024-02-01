@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" component="h1" gutterBottom>
         Favorite Animals App
       </Typography>
       <Button

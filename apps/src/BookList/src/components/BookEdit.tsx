@@ -1,7 +1,5 @@
 import { SetStateAction, useState } from "react"
 import Card from "@mui/material/Card"
-// import IconButton from "@mui/material/IconButton"
-// import ClearIcon from "@mui/icons-material/Clear"
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
 import CardActions from "@mui/material/CardActions"
@@ -9,8 +7,12 @@ import CardContent from "@mui/material/CardContent"
 import Button from "@mui/material/Button"
 import { BookType } from "../types.tsx"
 
-function BookEdit(props: { book: BookType, handleCancel: () => void }) {
-  const { book, handleCancel } = props
+function BookEdit(props: {
+  book: BookType
+  handleCancel: () => void
+  onSubmit: (id: number, newTitle: string) => void
+}) {
+  const { book, handleCancel, onSubmit } = props
   const [title, setTitle] = useState(book.title)
 
   const handleChange = (event: {
@@ -21,17 +23,9 @@ function BookEdit(props: { book: BookType, handleCancel: () => void }) {
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault()
-
-    console.log("New title", title)
+    console.log("Edited title is", title)
+    onSubmit(book.id, title)
   }
-
-  const handleSave = () => {
-    console.log("save")
-  }
-
-  // const handleCancel = () => {
-  //   setShowEdit(!showEdit)
-  // }
 
   return (
     <Card variant="outlined">
@@ -51,15 +45,16 @@ function BookEdit(props: { book: BookType, handleCancel: () => void }) {
             type="input"
             value={title}
             onChange={handleChange}
-            // sx={{ backgroundColor: "#fff" }}
           />
         </Box>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={handleSave}>
+        <Button variant="contained" size="small" onClick={handleSubmit}>
           Save
         </Button>
-        <Button size="small" onClick={handleCancel}>Cancel</Button>
+        <Button variant="outlined" size="small" onClick={handleCancel}>
+          Cancel
+        </Button>
       </CardActions>
     </Card>
   )

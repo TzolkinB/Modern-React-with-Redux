@@ -38,7 +38,7 @@ function useRouteMatch(patterns: readonly string[]) {
 function Home() {
   return (
     <div>
-      <Typography variant="h1" gutterBottom>
+      <Typography variant="h2" component="h1" gutterBottom>
         Multi-App Homepage
       </Typography>
       <Typography variant="body1">
