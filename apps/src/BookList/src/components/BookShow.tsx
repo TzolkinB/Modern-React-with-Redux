@@ -11,8 +11,12 @@ import Typography from "@mui/material/Typography"
 import { BookType } from "../types.tsx"
 import BookEdit from "./BookEdit.tsx"
 
-function Bookshow(props: { book: BookType; onDelete: (id: number) => void }) {
-  const { book, onDelete } = props
+function Bookshow(props: {
+  book: BookType
+  onDelete: (id: number) => void
+  onEdit: (id: number, newTitle: string) => void
+}) {
+  const { book, onDelete, onEdit } = props
   const [showEdit, setShowEdit] = useState(false)
 
   const handleDelete = () => {
@@ -27,10 +31,19 @@ function Bookshow(props: { book: BookType; onDelete: (id: number) => void }) {
     setShowEdit(!showEdit)
   }
 
+  const handleSubmit = (id: number, newTitle: string) => {
+    setShowEdit(false)
+    onEdit(id, newTitle)
+  }
+
   return (
     <Box sx={{ width: 275, py: 2 }}>
       {showEdit ? (
-        <BookEdit book={book} handleCancel={handleCancel}/>
+        <BookEdit
+          book={book}
+          handleCancel={handleCancel}
+          onSubmit={handleSubmit}
+        />
       ) : (
         <Card variant="outlined">
           <CardHeader
