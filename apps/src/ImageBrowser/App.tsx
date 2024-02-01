@@ -1,7 +1,8 @@
 import { useState } from "react"
+import Typography from "@mui/material/Typography"
 import searchImages from "./src/api.tsx"
 import SearchBar from "./src/components/SearchBar.tsx"
-import ImageList from "./src/components/ImageList.tsx"
+import ImageResults from "./src/components/ImageResults.tsx"
 import { DataObj } from "./src/types.tsx"
 
 function App() {
@@ -35,10 +36,12 @@ function App() {
   }
 
   return (
-    <div className="container-fluid">
-      <h1>Unplash Image Search</h1>
+    <div>
+      <Typography variant="h2" gutterBottom>
+        Unplash Image Search
+      </Typography>
       <SearchBar handleSearch={handleSubmit} />
-      <ImageList images={images} />
+      <ImageResults images={images} />
     </div>
   )
 }

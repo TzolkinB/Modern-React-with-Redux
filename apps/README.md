@@ -1,3 +1,5 @@
+![CI/CD workflow](https://github.com/TzolkinB/Modern-React-with-Redux/actions/workflows/cicd.js.yml/badge.svg)
+
 # Animals App and Image Browser App
 
 Uses react-router-dom v6, typescript 5

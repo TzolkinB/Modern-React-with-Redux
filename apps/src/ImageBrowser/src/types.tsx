@@ -29,4 +29,5 @@ export type DataObj = {
   updated_at: string
   promoted_at: string
   urls: UrlsObj
+  user: { username: string }
 }
