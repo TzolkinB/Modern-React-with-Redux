@@ -7,9 +7,10 @@
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint --ext .tsx src/",
-    "test-server": "vite dev --mode test",
-    "test:e2e": "cypress open --e2e",
-    "server-and-test": "start-server-and-test 'npm run test-server' http://localhost:3030 'npm run test:e2e'"
+    "cy:run": "start-server-and-test 'npm run test-server' http://localhost:3030 'cypress run'",
+    "cy:e2e": "cypress open --e2e",
+    "cy:servertest": "start-server-and-test 'npm run test-server' http://localhost:3030 'npm run cy:e2e'",
+    "test-server": "vite dev --mode test"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
