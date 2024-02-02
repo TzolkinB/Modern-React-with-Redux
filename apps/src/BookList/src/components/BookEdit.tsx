@@ -28,7 +28,7 @@ function BookEdit(props: {
   }
 
   return (
-    <Card variant="outlined">
+    <Card variant="outlined" data-testid={`edit-card-${book.id}`}>
       <CardContent>
         <Box
           component="form"

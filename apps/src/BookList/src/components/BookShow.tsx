@@ -45,7 +45,7 @@ function Bookshow(props: {
           onSubmit={handleSubmit}
         />
       ) : (
-        <Card variant="outlined">
+        <Card variant="outlined" data-testid={`card-${book.id}`}>
           <CardHeader
             action={
               <IconButton aria-label="delete" onClick={handleDelete}>
@@ -53,6 +53,7 @@ function Bookshow(props: {
               </IconButton>
             }
             title={book.title}
+            data-testid="card-header"
           />
           <CardContent>
             <Typography variant="body1" gutterBottom>
