@@ -9,13 +9,14 @@ on:
   pull_request:
     branches: [ "master" ]
 
-jobs:
+defaults:
+    run: 
+      working-directory: ./apps/
+
+jobs: 
   install:
 
     runs-on: ubuntu-latest
-    defaults:
-      run: 
-        working-directory: ./apps/
 
     strategy:
       matrix:
@@ -37,9 +38,6 @@ jobs:
   lint:
   
     runs-on: ubuntu-latest
-    defaults:
-      run: 
-        working-directory: ./apps/
     needs: install
     steps:
     - name: Linting app
@@ -48,9 +46,6 @@ jobs:
   test:
     
     runs-on: ubuntu-latest
-    defaults:
-      run: 
-        working-directory: ./apps/
     needs: install
     steps:
       - name: Cypress E2E
