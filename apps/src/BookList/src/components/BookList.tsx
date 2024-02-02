@@ -1,14 +1,18 @@
-// import BookShow from "./BookShow.tsx"
+import BookShow from "./BookShow.tsx"
 import { BookType } from "../types.tsx"
 
-function BookList(props: { books: BookType[] }) {
-  const { books } = props
+function BookList(props: {
+  books: BookType[]
+  onDelete: (id: number) => void
+  onEdit: (id: number, newTitle: string) => void
+}) {
+  const { books, onDelete, onEdit } = props
   const renderedBooks = books?.map((book) => {
-    // return <BookShow key={book.id} book={book} />
-    return <div>Book:{book.title}</div>
+    return (
+      <BookShow onDelete={onDelete} onEdit={onEdit} key={book.id} book={book} />
+    )
   })
 
-  // return <div>BookList</div>
   return <div>{renderedBooks}</div>
 }
 
