@@ -11,7 +11,7 @@ on:
 
 defaults:
     run: 
-      working-directory: ./apps/
+      working-directory: /apps/
 
 jobs: 
   install:
@@ -40,6 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: install
     steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
     - name: Linting app
       run: npm run lint
 
