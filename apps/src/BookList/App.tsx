@@ -9,7 +9,10 @@ function App() {
 
   const createBook = (title: string) => {
     console.log("Need to add book with", title)
-    const updatedBooks = [...books, { id: Math.random() * 9999, title }]
+    const updatedBooks = [
+      ...books,
+      { id: Math.round(Math.random() * 9999), title },
+    ]
     setBooks(updatedBooks)
   }
 
