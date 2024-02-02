@@ -37,14 +37,20 @@ jobs:
   lint:
   
     runs-on: ubuntu-latest
+    defaults:
+      run: 
+        working-directory: ./apps/
     needs: install
     steps:
     - name: Linting app
       run: npm run lint
 
-  tests:
+  test:
     
     runs-on: ubuntu-latest
+    defaults:
+      run: 
+        working-directory: ./apps/
     needs: install
     steps:
       - name: Cypress E2E
