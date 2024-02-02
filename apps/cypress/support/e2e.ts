@@ -16,6 +16,8 @@
 // Import commands.js using ES2015 syntax:
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import "./commands"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@testing-library/cypress/add-commands"
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
