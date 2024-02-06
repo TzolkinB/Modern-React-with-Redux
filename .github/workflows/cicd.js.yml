@@ -17,7 +17,6 @@ jobs:
   install:
 
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x]
@@ -32,8 +31,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install package-lock dependencies
+      run: npm ci
   
   lint:
   
@@ -42,6 +41,9 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
+    - name: Install again
+      run: npm ci
+      
     - name: Linting app
       run: npm run lint
 
