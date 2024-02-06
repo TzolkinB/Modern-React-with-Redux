@@ -15,29 +15,36 @@ const StyledImageListItem = styled(ImageListItem)`
 
 function ImageResults(props: { images: DataObj[] }) {
   const { images } = props
+  console.log('images', images.length)
 
   return (
-    <ImageList cols={5}>
-      {images?.map((image) => {
-        const imageUrl = image.urls.thumb
-        return (
-          <StyledImageListItem key={image.id}>
-            <img
-              srcSet={imageUrl}
-              src={imageUrl}
-              alt={image.alt_description}
-              loading="lazy"
-            />
-            <ImageListItemBar
-              title={image.alt_description}
-              subtitle={<span>by: {image.user?.username}</span>}
-              position="below"
-              sx={{ alignSelf: "center" }}
-            />
-          </StyledImageListItem>
-        )
-      })}
-    </ImageList>
+    <div>
+      {images.length ? (
+        <ImageList cols={5}>
+          {images.map((image) => {
+            const imageUrl = image.urls.thumb
+            return (
+              <StyledImageListItem key={image.id}>
+                <img
+                  srcSet={imageUrl}
+                  src={imageUrl}
+                  alt={image.alt_description}
+                  loading="lazy"
+                />
+                <ImageListItemBar
+                  title={image.alt_description}
+                  subtitle={<span>by: {image.user?.username}</span>}
+                  position="below"
+                  sx={{ alignSelf: "center" }}
+                />
+              </StyledImageListItem>
+            )
+          })}
+        </ImageList>
+      ) : (
+        <div> No search results. Try again.</div>
+      )}
+    </div>
   )
 }
 
