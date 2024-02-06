@@ -38,7 +38,7 @@ function App() {
   return (
     <div>
       <Typography variant="h2" component="h1" gutterBottom>
-        Unplash Image Search
+        Unsplash Image Search
       </Typography>
       <SearchBar handleSearch={handleSubmit} />
       <ImageResults images={images} />
