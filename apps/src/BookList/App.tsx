@@ -33,23 +33,6 @@ function App() {
     setBooks(updatedBooks)
   }
 
-  const deleteBookById = (id: number) => {
-    const updatedBooks = books.filter((book) => {
-      return book.id !== id
-    })
-    setBooks(updatedBooks)
-  }
-
-  const editBookById = (id: number, newTitle: string) => {
-    const updatedBooks = books.map((book) => {
-      if (book.id === id) {
-        return { ...book, title: newTitle }
-      }
-      return book
-    })
-    setBooks(updatedBooks)
-  }
-
   return (
     <div>
       <Typography variant="h2" component="h1">
