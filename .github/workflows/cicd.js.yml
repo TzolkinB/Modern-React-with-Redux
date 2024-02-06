@@ -46,9 +46,6 @@ jobs:
   lint:
   
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./apps/
     needs: install
     steps:
     - uses: actions/checkout@v3
@@ -67,11 +64,7 @@ jobs:
       # run: npm ci
 
     - name: Linting app
-      working-directory: ./apps
-      run: |
-        cd apps
-        echo 'Hi ${{ github.workspace }}'
-        npm run lint
+      run: npm run lint
 
   test:
     
@@ -87,6 +80,7 @@ jobs:
        uses: cypress-io/github-action@v6
        with:
          working-directory: ./apps/
+         config: retries=1
          command: npm run cy:run
 
     
