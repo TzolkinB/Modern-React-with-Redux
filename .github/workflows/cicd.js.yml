@@ -65,7 +65,9 @@ jobs:
         key: npm-${{ hashFiles('package-lock.json') }}
         # Checks say "Cache restored successfully" but "npm run lint" still says eslint not found
       # run: npm ci
-      
+    - name: Get workspace
+      run: echo 'Hi ${{ github.workspace }}'
+
     - name: Linting app
       run: npm run lint
 
