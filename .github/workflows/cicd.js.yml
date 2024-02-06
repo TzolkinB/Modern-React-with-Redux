@@ -53,6 +53,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: ./app/package-lock.json
     # TODO: This step still not working since eslint not found message
     - name: Cache NPM dependencies
       # uses: actions/cache@v3
@@ -61,7 +62,7 @@ jobs:
         # path: ~/.npm
         # key: npm-${{ hashFiles('package-lock.json') }}
         # Checks say "Cache restored successfully" but "npm run lint" still says eslint not found
-      run: npm ci
+      # run: npm ci
       
     - name: Linting app
       run: npm run lint
@@ -78,7 +79,8 @@ jobs:
         cache: 'npm'
      - name: Cypress E2E
        uses: cypress-io/github-action@v6
-       with: 
-          command: npm run cy:run
+       with:
+         working-directory: ./apps/
+         command: npm run cy:run
 
     
