@@ -68,7 +68,10 @@ jobs:
 
     - name: Linting app
       working-directory: ./apps
-      run: npm run lint
+      run: |
+        cd apps
+        echo 'Hi ${{ github.workspace }}'
+        npm run lint
 
   test:
     
