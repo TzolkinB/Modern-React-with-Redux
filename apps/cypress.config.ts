@@ -4,8 +4,11 @@ import { defineConfig } from "cypress"
 export default defineConfig({
   e2e: {
     baseUrl: "http://localhost:3030",
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-    setupNodeEvents(on, config) {},
+    setupNodeEvents(on, config) {
+      require("@cypress/code-coverage/task")(on, config);
+
+      return config
+    },
   },
   component: {
     devServer: {

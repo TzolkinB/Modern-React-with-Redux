@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // ***********************************************************
 // This example support/e2e.ts is processed and
 // loaded automatically before your test files.
@@ -16,8 +17,7 @@
 // Import commands.js using ES2015 syntax:
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import "./commands"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import "@testing-library/cypress/add-commands"
-
+import "@cypress/code-coverage/support"
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
