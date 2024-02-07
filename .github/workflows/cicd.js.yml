@@ -64,6 +64,7 @@ jobs:
       # run: npm ci
 
     - name: Linting app
+      working-directory: ./apps      
       run: npm run lint
 
   test:
