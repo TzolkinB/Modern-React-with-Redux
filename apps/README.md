@@ -5,6 +5,7 @@
 Uses react-router-dom v6, typescript 5, Material UI
 
 Instead of multiple small apps with their own package.json and dependency management, the apps built in the tutorial are moved into their own folders after src
+
 ```js
 -src/
  | animals/
@@ -25,8 +26,19 @@ Uses: [Axios](https://axios-http.com/) and React useState hook.
 ## BookList
 
 Create a new book in the list then either edit it or delete it from the list.
+
 ```js
 Uses: JSON-server, and React useState hook.
+```
+
+Since this uses JSON-server, you have to have both the app and JSON-server running for it to work:
+
+```js
+// in one terminal, start the app
+`npm start`
+
+// in another terminal, start the JSON server
+`npm run server`
 ```
 
 # Getting Started
@@ -34,6 +46,7 @@ Uses: JSON-server, and React useState hook.
 App was created originally with create-react-app then migrated to [Vite](https://vitejs.dev/guide/).
 
 Cypress uses Webpack under the hood but Vite does not.
+
 ```js
 - cypress-vite // package allows us to use vite config and preprocessor for Cypress tests
 - start-server-and-test // optional package, simplifies process of running server and tests in parallel
