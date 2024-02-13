@@ -18,12 +18,13 @@ module.exports = {
   plugins: ['prettier', '@typescript-eslint'],
   rules: {
     'prettier/prettier': [
-      'warn',
+      'error',
       {
         "semi": false,
       }
     ],
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-console": "warn",
     // to enforce using type for object type definitions, can be type or interface 
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "react/jsx-filename-extension": "off"
