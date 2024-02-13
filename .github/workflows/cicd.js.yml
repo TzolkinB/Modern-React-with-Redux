@@ -11,7 +11,7 @@ on:
 
 defaults:
     run:
-      working-directory: ./apps/
+      working-directory: ./apps
 
 jobs: 
   install:
@@ -30,6 +30,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: app/package-lock.json
 
     - name: Cache NPM dependencies
       uses: actions/cache@v3
@@ -53,20 +54,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: app/package-lock.json
     # TODO: This step still not working since eslint not found message
-    #- name: Cache NPM dependencies
-      #uses: actions/cache@v3
-      #with:
-        # npm cache files are stored in `~/.npm`
-        #path: ~/.npm
-        #key: npm-${{ hashFiles('package-lock.json') }}
+    - name: Cache NPM dependencies
+      uses: actions/cache@v3
+      with:
+         # npm cache files are stored in `~/.npm`
+        path: '~/.npm'
+        key: npm-${{ hashFiles('package-lock.json') }}
         # Checks say "Cache restored successfully" but "npm run lint" still says eslint not found
 
     - name: Linting app
       #working-directory: ./apps      
-      run: | # remove npm ci once caching step works
-        npm ci 
-        npm run lint
+      #run: | # remove npm ci once caching step works
+        #npm ci 
+      run: npm run lint
 
   test:
     
