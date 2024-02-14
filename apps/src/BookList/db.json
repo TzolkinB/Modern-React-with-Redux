@@ -1,3 +1,12 @@
 {
-  "books": []
+  "books": [
+    {
+      "title": "JavaScript Ninja",
+      "id": 2
+    },
+    {
+      "title": "Sherlock Holmes",
+      "id": 3
+    }
+  ]
 }
