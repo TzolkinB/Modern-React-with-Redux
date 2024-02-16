@@ -84,6 +84,9 @@ jobs:
          install: false
          working-directory: ./apps
          config: retries=1
-         command: npm run cy:run
+          # server command starts the json-server required for booklist tests
+         command: |
+          npm run server
+          npm run cy:run
 
     
