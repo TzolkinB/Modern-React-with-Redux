@@ -11,7 +11,7 @@ on:
 
 defaults:
     run:
-      working-directory: ./apps/
+      working-directory: ./apps
 
 jobs: 
   install:
@@ -30,6 +30,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: apps/package-lock.json
 
     - name: Cache NPM dependencies
       uses: actions/cache@v3
@@ -49,22 +50,14 @@ jobs:
     needs: install
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: actions/cache@v3
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    # TODO: This step still not working since eslint not found message
-    #- name: Cache NPM dependencies
-      #uses: actions/cache@v3
-      #with:
-        # npm cache files are stored in `~/.npm`
-        #path: ~/.npm
-        #key: npm-${{ hashFiles('package-lock.json') }}
-        # Checks say "Cache restored successfully" but "npm run lint" still says eslint not found
-
+         # npm cache files are stored in `~/.npm`
+        path: ~/.npm
+        key: npm-${{ hashFiles('package-lock.json') }}
+        
     - name: Linting app
-      #working-directory: ./apps      
-      run: | # remove npm ci once caching step works
+      run: |
         npm ci 
         npm run lint
 
@@ -74,22 +67,27 @@ jobs:
     needs: install
     steps:
      - uses: actions/checkout@v3
-     - uses: actions/setup-node@v3
+     - uses: actions/cache@v3
        with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    # TODO use install false once cache is working
-     #- uses: actions/cache@v3
-       #with:
         # npm cache files are stored in `~/.npm`
-        #path: ~/.npm
-        #key: npm-${{ hashFiles('package-lock.json') }}
+        path: ~/.npm
+        key: npm-${{ hashFiles('package-lock.json') }}
      - name: Cypress E2E
        uses: cypress-io/github-action@v6
        with:
-         # install: false
-         working-directory: ./apps/
+         working-directory: ./apps
          config: retries=1
+         # start parameter is used for starting the server, json-server is required for booklist tests
+         start: npm run server
+         # command parameter overwrites the Cypress run command with your custom command
          command: npm run cy:run
+     - name: Artifacts
+       uses: actions/upload-artifact@v4
+       # store screenshots only on failures
+       if: failure()
+       with:
+         name: cypress-screenshots
+         path: cypress/screenshots
+         if-no-files-found: warn
 
     
