@@ -21,5 +21,8 @@ export default defineConfig(() => ({
   server: {
     port: 3030,
     open: true,
+    watch: {
+      ignored: ["**/coverage/**"],
+    },
   },
 }))
