@@ -67,26 +67,28 @@ jobs:
     needs: install
     steps:
      - uses: actions/checkout@v3
-     #- uses: actions/setup-node@v3
-       #with:
-        #node-version: ${{ matrix.node-version }}
-        #cache: 'npm'
-    # TODO use install false once cache is working
      - uses: actions/cache@v3
        with:
         # npm cache files are stored in `~/.npm`
         path: ~/.npm
         key: npm-${{ hashFiles('package-lock.json') }}
-     - run: npm i cypress@13.6.4
      - name: Cypress E2E
        uses: cypress-io/github-action@v6
        with:
-         install: false
          working-directory: ./apps
          config: retries=1
           # server command starts the json-server required for booklist tests
          command: |
+          npm ci
           npm run server
           npm run cy:run
+     - name: Artifacts
+       uses: actions/upload-artifact@v4
+       # store screenshots only on failures
+       if: failure()
+       with:
+         name: cypress-screenshots
+         path: cypress/screenshots
+         if-no-files-found: warn
 
     
