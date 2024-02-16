@@ -77,11 +77,10 @@ jobs:
        with:
          working-directory: ./apps
          config: retries=1
-          # server command starts the json-server required for booklist tests
-         command: |
-          npm ci
-          npm run server
-          npm run cy:run
+         # start parameter is used for starting the server, json-server is required for booklist tests
+         start: npm run server
+         # command parameter overwrites the Cypress run command with your custom command
+         command: npm run cy:run
      - name: Artifacts
        uses: actions/upload-artifact@v4
        # store screenshots only on failures
