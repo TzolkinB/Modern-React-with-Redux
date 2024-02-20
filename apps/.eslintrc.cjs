@@ -6,6 +6,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:cypress/recommended',
     'airbnb',
+    'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'plugin:prettier/recommended',
   ],

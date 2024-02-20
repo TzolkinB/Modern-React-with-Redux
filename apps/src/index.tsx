@@ -2,6 +2,7 @@ import * as React from "react"
 import { createRoot } from "react-dom/client"
 import { ThemeProvider } from "@emotion/react"
 import { CssBaseline } from "@mui/material"
+import { BookContextProvider } from "./BookList/src/bookContext.tsx"
 import theme from "./theme.tsx"
 import App from "./App.tsx"
 
@@ -11,7 +12,9 @@ root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <App />
+      <BookContextProvider>
+        <App />
+      </BookContextProvider>
     </ThemeProvider>
   </React.StrictMode>,
 )
