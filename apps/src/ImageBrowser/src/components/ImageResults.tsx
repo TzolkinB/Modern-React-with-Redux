@@ -15,7 +15,7 @@ const StyledImageListItem = styled(ImageListItem)`
 
 function ImageResults(props: { images: DataObj[] }) {
   const { images } = props
-  console.log('images', images.length)
+  console.log("images", images.length)
 
   return (
     <div>
