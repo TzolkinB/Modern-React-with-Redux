@@ -9,7 +9,3 @@ export type BooksMemoType = {
   books: BookType[]
   setBooks: React.Dispatch<React.SetStateAction<BookType[]>>
 }
-
-export type EditBookType = {
-  editBookById: (id: number, newTitle: string) => Promise<void>
-}

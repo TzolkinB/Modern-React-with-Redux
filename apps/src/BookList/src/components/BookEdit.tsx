@@ -1,4 +1,5 @@
 import { SetStateAction, useState, useContext } from "react"
+import axios from "axios"
 import Card from "@mui/material/Card"
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
@@ -6,7 +7,7 @@ import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
 import Button from "@mui/material/Button"
 import { BookType } from "../types.tsx"
-import { EditBookContext } from "../bookContext.tsx"
+import { BookContext } from "../bookContext.tsx"
 
 function BookEdit(props: {
   book: BookType
@@ -14,8 +15,21 @@ function BookEdit(props: {
   onSubmit: () => void
 }) {
   const { book, handleCancel, onSubmit } = props
-  const { editBookById } = useContext(EditBookContext)
+  const { books, setBooks } = useContext(BookContext)
   const [title, setTitle] = useState(book.title)
+
+  const editBookById = async (id: number, newTitle: string) => {
+    const response = await axios.put(`http://localhost:3001/books/${id}`, {
+      title: newTitle,
+    })
+    const updatedBooks = books.map((bookItem) => {
+      if (bookItem.id === id) {
+        return { ...bookItem, ...response.data }
+      }
+      return bookItem
+    })
+    setBooks(updatedBooks)
+  }
 
   const handleChange = (event: {
     target: { value: SetStateAction<string> }
