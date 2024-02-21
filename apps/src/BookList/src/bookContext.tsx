@@ -5,15 +5,16 @@ import { BookType, BooksMemoType } from "./types.tsx"
 export const BookContext = createContext<BooksMemoType>({
   books: [],
   setBooks: () => {},
-  // editBookById: () => {},
 })
 
-export function BookContextProvider({
-  children,
-}: PropsWithChildren<NonNullable<unknown>>) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const EditBookContext = createContext({} as any)
+
+export function BookContextProvider({ children }: PropsWithChildren<unknown>) {
   const [books, setBooks] = useState<BookType[]>([])
 
-  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+  // linter suggested wrapping in useCallback hook
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const editBookById = async (id: number, newTitle: string) => {
     const response = await axios.put(`http://localhost:3001/books/${id}`, {
       title: newTitle,
@@ -30,6 +31,10 @@ export function BookContextProvider({
   const booksMemo = useMemo(() => ({ books, setBooks }), [books, setBooks])
 
   return (
-    <BookContext.Provider value={booksMemo}>{children}</BookContext.Provider>
+    <BookContext.Provider value={booksMemo}>
+      <EditBookContext.Provider value={editBookById}>
+        {children}
+      </EditBookContext.Provider>
+    </BookContext.Provider>
   )
 }

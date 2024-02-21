@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
 import CardHeader from "@mui/material/CardHeader"
@@ -10,13 +10,11 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import { BookType } from "../types.tsx"
 import BookEdit from "./BookEdit.tsx"
+import { EditBookContext } from "../bookContext.tsx"
 
-function Bookshow(props: {
-  book: BookType
-  onDelete: (id: number) => void
-  onEdit: (id: number, newTitle: string) => void
-}) {
-  const { book, onDelete, onEdit } = props
+function Bookshow(props: { book: BookType; onDelete: (id: number) => void }) {
+  const { book, onDelete } = props
+  const { editBookById } = useContext(EditBookContext)
   const [showEdit, setShowEdit] = useState(false)
 
   const handleDelete = () => {
@@ -33,7 +31,7 @@ function Bookshow(props: {
 
   const handleSubmit = (id: number, newTitle: string) => {
     setShowEdit(false)
-    onEdit(id, newTitle)
+    editBookById(id, newTitle)
   }
 
   return (

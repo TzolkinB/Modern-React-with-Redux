@@ -3,12 +3,9 @@ import axios from "axios"
 import Typography from "@mui/material/Typography"
 import BookCreate from "./src/components/BookCreate.tsx"
 import BookList from "./src/components/BookList.tsx"
-// import { BookType } from "./src/types.tsx"
 import { BookContext } from "./src/bookContext.tsx"
 
 function App() {
-  // const [books, setBooks] = useState<BookType[]>([])
-  console.log('context', useContext(BookContext))
   const { books, setBooks } = useContext(BookContext)
 
   const fetchBooks = async () => {
@@ -36,19 +33,6 @@ function App() {
     })
     setBooks(updatedBooks)
   }
-
-  // const editBookById = async (id: number, newTitle: string) => {
-  //   const response = await axios.put(`http://localhost:3001/books/${id}`, {
-  //     title: newTitle,
-  //   })
-  //   const updatedBooks = books.map((book) => {
-  //     if (book.id === id) {
-  //       return { ...book, ...response.data }
-  //     }
-  //     return book
-  //   })
-  //   setBooks(updatedBooks)
-  // }
 
   return (
     <div>
