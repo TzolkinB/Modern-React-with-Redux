@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react"
+import { useEffect, useContext, useCallback } from "react"
 import axios from "axios"
 import Typography from "@mui/material/Typography"
 import BookCreate from "./src/components/BookCreate.tsx"
@@ -8,15 +8,15 @@ import { BookContext } from "./src/bookContext.tsx"
 function App() {
   const { books, setBooks } = useContext(BookContext)
 
-  const fetchBooks = async () => {
+  const fetchBooks = useCallback(async () => {
     const response = await axios.get("http://localhost:3001/books")
     setBooks(response.data)
-  }
+  }, [setBooks])
 
-  // useEffect is primarily used when initially rendered
+  // useEffect can only return a function
   useEffect(() => {
     fetchBooks()
-  }, [])
+  }, [fetchBooks])
 
   const createBook = async (title: string) => {
     const response = await axios.post("http://localhost:3001/books", {
