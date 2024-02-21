@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, useMemo, useState } from "react"
 import axios from "axios"
-import { BookType, BooksMemoType } from "./types.tsx"
+import { BookType, BooksMemoType, EditBookType } from "./types.tsx"
 
 export const BookContext = createContext<BooksMemoType>({
   books: [],
@@ -8,7 +8,9 @@ export const BookContext = createContext<BooksMemoType>({
 })
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const EditBookContext = createContext({} as any)
+export const EditBookContext = createContext<
+  (id: number, newTitle: string) => Promise<void>
+>({})
 
 export function BookContextProvider({ children }: PropsWithChildren<unknown>) {
   const [books, setBooks] = useState<BookType[]>([])
